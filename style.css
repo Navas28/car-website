@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+:root{
+
+  /** ----------colors---------------- */
+
+    --header-height: 3.5rem;
+    --orange-color: hsl(36, 90%, 54%);
+    --green-color: hsl(166, 90%, 40%);
+    --blue-color: hsl(198,74.47%,63.14%);
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(210, 8%, 8%);
+    --red-color: hsl(0,98.88%,35.1%);
+    --yellow-color:hsl(48.48,90%,56.86%);
+    
+   /**-----------font-------------------  */
+    --body-font: "Montserrat", sans-serif;
+    --second-font: "Dancing Script", cursive;
+    --biggest-font-size: 5rem;
+    --big-font-size: 2rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+
+  /**--------------font wight--------- */
+    
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+  /**-----------------z-index-----------  */  
+
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+/* ---------------------------------------------Responsive----------------------------------------------------------------------- */
+
+@media (min-width: 1150px){  /* ! size apply when screen size 1150 or above */
+  :root{
+    --biggest-font-size: 15rem;
+    --big-font-size: 2rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+/* --------------------------------------------Base inputs------------------------------------------------------------------------- */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--white-color);
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+/* ------------------------------------------Reusable Css classes------------------------------------------------------------------------- */
+
+.container{
+    max-width: 100%;
+    margin-inline: 1.5rem;/* ! sets the horizontal margins on both the left and right sides of an element. */
+}
+.main{
+    overflow: hidden;
+}
+.car__orange{
+    --color-car: var(--orange-color);
+}
+.car__green{
+    --car-color: var(--green-color);
+}
+.car__blue{
+    --color-car:var(--blue-color);
+}
+.car__white{
+    --color-car:var(--white-color);
+}
+.car__red{
+    --color-car: var(--red-color)
+}
+.car__yellow{
+    --color-car:var(--yellow-color);
+}
+/* -------------------------------------------------------header & nav---------------------------------------------------------------------------- */
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+   z-index: var(--z-fixed);
+}
+.nav{
+    position: relative;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav__logo, .nav__link{ /* ! 2 classes at a single time styling !  we can style  an individual class separately if needed.  */
+    color: var(--white-color);
+    font-weight: var(--font-semi-bold);
+}
+.nav__toggle, .nav__close{
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center; /* !  the item set  to center both horizontally and vertically. like we use justify content center and align items center in display : flex . it work only grid.*/
+    border: 2px solid var(--white-color);
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+.nav__menu{
+    position: fixed;
+    top: 0;
+    right:-100%;
+    background-color: hsl(210, 8%, 8%, .7);
+    backdrop-filter: blur(16px);    /*! blur everything behind the element. text ,imgaes etc... */
+    -webkit-backdrop-filter: blur(16px);/* ! -webkit using for that the property works in browsers that require that prefix, such as older versions of Safari and some versions of Chrome. */    
+    width: 80%;
+    height: 100%;
+    padding: 7rem 3.5rem 3.5rem;
+    transition: right .4s;
+}
+.nav__list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+.nav__close{
+    position: absolute;
+    top:.8rem;
+    right: 1.5rem;
+}
+.show-menu{
+    right: 0;
+}
+
+/* --------------------------------------------------Home--------------------------------------------------------------------- */
+
+.home__article{
+    position: relative;
+    padding-top: 12rem;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.home__panel-1{
+    width: 100%;
+    height: 40%;
+    background-color: var(--color-car);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.home__panel-2{
+    width: 100%;
+    height: 60%;
+    background-color: var(--black-color);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.home__content{
+    position:relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    margin-top: -35px;
+}
+.home__data{
+    position: relative;
+    
+}
+.home__titles{
+    width: max-content;
+    margin-inline: auto;
+}
+.home__subtitle{
+    font-size: var(--big-font-size);
+    font-family: var(--second-font);
+}
+.home__title{
+    font-size: var(--biggest-font-size);
+}
+.home__img{
+    max-width: none;
+    width: 600px;
+    height: auto;
+    position: relative;
+    left: 0;
+}
+.home__interaction{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.home__social{
+    position: absolute;
+    top: 4rem;
+    left: 1.5rem;
+    display: grid;
+    justify-items: center;
+    row-gap: .75rem;
+    z-index: 10;
+}
+.home__social-link{
+    font-size: 1.25rem;
+    color: var(--black-color);
+}
+.home__social-border{
+    width: 2px;
+    height: 88px;
+    background-color: var(--white-color);
+    margin-bottom: .75rem;
+}
+ @media (min-width: 600px){
+    .container{
+        margin-inline: auto;
+    }
+    .nav{
+        height: calc(var(--header-height) + 2rem);
+    }
+    .nav__menu{
+        width: 40%;
+        padding: 10rem 4rem 0;
+    }
+    .nav__close{
+        top: 1.7rem;
+    }
+   
+ }
+
